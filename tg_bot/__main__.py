@@ -48,8 +48,8 @@ Hello! my name *{}*.
  - /help: help....
  - /donate: To find out more about donating!
  - /settings:
-   - in PM: To find out what SETTINGS you have set....
-   - in a group:
+   ◔ in PM: will send you your settings for all supported modules.
+   ◔ in a Group: will redirect you to pm, with all that chat's settings.
 
 {}
 All commands can be used with the following: / or !

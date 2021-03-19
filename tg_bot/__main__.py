@@ -21,8 +21,23 @@ PM_START_TEXT = """
 Hey there! My name is *{}!*
 I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
 
-Join my [news channel](https://t.me/DingdiNews) to get information on all the latest updates.
+Join my Group [RSR TG info](https://t.me/rsrtginfo) to get information on all the latest updates.
+
+Ka hnathawh theih hrilhfiahna ho hi English vek a hrilhfiah anih avang in hriatthiam loh chin i neih chuan a hnuai button a channel leh group ho khu i join dawn nia.
 """
+buttons = [
+    [
+        InlineKeyboardButton(text="★ Support Channel", url="https://t.me/mizolibrary"),
+    ],
+    [
+        InlineKeyboardButton(text="♚ Support Group", url="https://t.me/rsrtginfo"),
+    ],
+    [
+        InlineKeyboardButton(
+            text="➕ Add me to your group ➕", url="t.me/pitarte_bot?startgroup=true"
+        ),
+    ],
+]
 
 HELP_STRINGS = """
 

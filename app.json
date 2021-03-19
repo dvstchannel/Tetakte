@@ -10,7 +10,7 @@
     "manager",
     "3"
   ],
-  "repository": "hhttps://github.com/zauteakm/Dingdi-2.0",
+  "repository": "https://github.com/rosanga/pitar",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
@@ -22,11 +22,11 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "1684438752"
+      "value": "1636564540"
     },
     "OWNER_USERNAME": {
       "description": "Your username",
-      "value": "ZauteKm"
+      "value": "rsrmusic"
     },
     "WEBHOOK": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode messages",

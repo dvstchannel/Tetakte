@@ -34,7 +34,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="➕ Add me to your group ➕", url="t.me/pitarte_bot?startgroup=true"
+            text="➕ Add me to your group ➕", url="t.me/tereuhte_bot?startgroup=true"
         ),
     ],
 ]

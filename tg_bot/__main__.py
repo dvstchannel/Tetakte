@@ -23,21 +23,9 @@ I'm here to help you manage your groups! Hit /help to find out more about how to
 
 Join my Group [RSR TG info](https://t.me/rsrtginfo) to get information on all the latest updates.
 
-Ka hnathawh theih hrilhfiahna ho hi English vek a hrilhfiah anih avang in hriatthiam loh chin i neih chuan a hnuai button a channel leh group ho khu i join dawn nia.
+Ka hnathawh theih hrilhfiahna ho hi English vek a hrilhfiah anih avangin min hmandan tur ah harsatna i nei thei a,chuvang chuan a hnuai a View Group tih khu click la group kha join rawh,harsatna i neih te i zawt thei ang.
 """
-buttons = [
-    [
-        InlineKeyboardButton(text="★ Support Channel", url="https://t.me/mizolibrary"),
-    ],
-    [
-        InlineKeyboardButton(text="♚ Support Group", url="https://t.me/rsrtginfo"),
-    ],
-    [
-        InlineKeyboardButton(
-            text="➕ Add me to your group ➕", url="t.me/tereuhte_bot?startgroup=true"
-        ),
-    ],
-]
+
 
 HELP_STRINGS = """
 
@@ -53,7 +41,7 @@ Hello! my name *{}*.
 
 {}
 All commands can be used with the following: / or !
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "If you have any bugs or questions on how to use me, have a look at @DingdiSupport or @MizoInFoTel14.")
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "If you have any bugs or questions on how to use me, have a look at @mizolibrary or @rsrtginfo.")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 It took lots of work for [my creator](t.me/rsrmusic) to get me to where I am now, and every donation helps \

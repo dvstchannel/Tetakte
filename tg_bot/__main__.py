@@ -129,14 +129,13 @@ def start(bot: Bot, update: Update, args: List[str]):
                 else:
                     send_settings(match.group(1), update.effective_user.id, True)
 
-            PM_START_TEXT.format(escape_markdown(bot.first_name)), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup( [[InlineKeyboardButton(text="➕ Add Me to Your Group ➕", url="t.me/{}?startgroup=true".format(bot.username))]]))
-            
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
+                PM_START_TEXT.format(escape_markdown(bot.first_name)), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup( [[InlineKeyboardButton(text="➕ Add Me to Your Group ➕", url="t.me/{}?startgroup=true".format(bot.username))]]))
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:

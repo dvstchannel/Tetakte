@@ -18,12 +18,12 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hey there! My name is *{}!*
+Hey there! *{}!*
 I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
 
-Join my Group [RSR TG info](https://t.me/rsrtginfo) to get information on all the latest updates.
+Join my Group [RSR TG info](@rsrtginfo) to get information on all the latest updates.
 
-Ka hnathawh theih hrilhfiahna ho hi English vek a hrilhfiah anih avangin min hmandan tur ah harsatna i nei thei a,chuvang chuan a hnuai a View Group tih khu click la group kha join rawh,harsatna i neih te i zawt thei ang.
+
 """
 
 

@@ -23,7 +23,7 @@ I'm here to help you manage your groups! Hit /help to find out more about how to
 
 Join my Group @rsrtginfo to get information on all the latest updates.
 
-Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih avangin a chung a  rsrtginfo  tih hi click la join rawh,harsatna te i thlen thei ang,chuan /help tih hi click la ka hnathawh theih te i chhiar thei ang.
+Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih avangin a chung a  <b>rsrtginfo</b>  tih hi click la join rawh,harsatna te i thlen thei ang,chuan /help tih hi click la ka hnathawh theih te i chhiar thei ang.
 
 """
 
@@ -129,6 +129,8 @@ def start(bot: Bot, update: Update, args: List[str]):
                 else:
                     send_settings(match.group(1), update.effective_user.id, True)
 
+            PM_START_TEXT.format(escape_markdown(bot.first_name)), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup( [[InlineKeyboardButton(text="➕ Add Me to Your Group ➕", url="t.me/{}?startgroup=true".format(bot.username))]]))
+            
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 

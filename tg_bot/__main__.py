@@ -26,31 +26,7 @@ Join my Group @rsrtginfo to get information on all the latest updates.
 Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih avangin a chung a  rsrtginfo  tih hi click la join rawh,harsatna te i thlen thei ang,chuan /help tih hi click la ka hnathawh theih te i chhiar thei ang.
 
 """
-buttons = [
 
-    [
-
-        InlineKeyboardButton(text="★ Support Channel", url="https://t.me/mizolibrary"),
-
-    ],
-
-    [
-
-        InlineKeyboardButton(text="♚ Support Group", url="https://t.me/rsrtginfo"),
-
-    ],
-
-    [
-
-        InlineKeyboardButton(
-
-            text="➕ Add me to your group ➕", url="t.me/tereuhte_bot?startgroup=true"
-
-        ),
-
-    ],
-
-]
 
 HELP_STRINGS = """
 

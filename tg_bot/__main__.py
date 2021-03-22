@@ -21,8 +21,9 @@ PM_START_TEXT = """
 Hey there! *{}!*
 I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
 
-Join my Group [RSR TG info](@rsrtginfo) to get information on all the latest updates.
+Join my Group @rsrtginfo to get information on all the latest updates.
 
+Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih avangin a chung a **rsrtginfo** tih hi click la join rawh,harsatna te i thlen thei ang.
 
 """
 buttons = [

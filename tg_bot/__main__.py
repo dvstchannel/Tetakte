@@ -29,7 +29,7 @@ Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih
 
 HELP_STRINGS = """
 
-Hello! my name *{}*.
+Hello! my name is *{}*.
 
 *Main* available commands:
  - /start: Start the bot...

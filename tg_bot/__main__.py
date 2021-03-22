@@ -25,7 +25,31 @@ Join my Group [RSR TG info](@rsrtginfo) to get information on all the latest upd
 
 
 """
+buttons = [
 
+    [
+
+        InlineKeyboardButton(text="★ Support Channel", url="https://t.me/mizolibrary"),
+
+    ],
+
+    [
+
+        InlineKeyboardButton(text="♚ Support Group", url="https://t.me/rsrtginfo"),
+
+    ],
+
+    [
+
+        InlineKeyboardButton(
+
+            text="➕ Add me to your group ➕", url="t.me/tereuhte_bot?startgroup=true"
+
+        ),
+
+    ],
+
+]
 
 HELP_STRINGS = """
 

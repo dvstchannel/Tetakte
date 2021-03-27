@@ -17,7 +17,7 @@ Alternatively, [find me on telegram](https://t.me/rsrmusic)! (Keep all support q
 
 ## You can also tap the Deploy To Heroku button below to deploy straight to Heroku!
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RSR-TG/tereuhte)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RSR-Downloader/Tereuhte)
 
 ## Starting the bot.
 

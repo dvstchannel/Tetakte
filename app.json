@@ -1,8 +1,8 @@
 
 {
-  "name": "Dingdi-2.0",
+  "name": "Tereuhte💋",
   "description": "Telegram's sassiest group manager. Modular Telegram group management bot!",
-    "logo": "https://telegra.ph/file/59641480dfa3cc8294b81.jpg",
+    "logo": "https://telegra.ph/Tereuhte-03-27",
   "keywords": [
     "telegram",
     "best",
@@ -10,7 +10,7 @@
     "manager",
     "3"
   ],
-  "repository": "https://github.com/rosanga/pitar",
+  "repository": "https://github.com/RSR-Downloader/Tereuhte",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
@@ -22,7 +22,7 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "1636564540"
+      "value": "1060318977"
     },
     "OWNER_USERNAME": {
       "description": "Your username",
@@ -38,23 +38,23 @@
     },
     "MESSAGE_DUMP": {
       "description": "optional: a chat where your replied saved messages are stored, to stop people deleting their old",
-      "value": "-1001271507690"
+      "value": "-1001186110661"
     },
     "SUDO_USERS": {
       "description": "A space separated list of user_ids which should be considered sudo users",
-      "value": "1173373896 1645872315"
+      "value": "1060318977 1371279338"
     },
     "SUPPORT_USERS": {
       "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
-      "value": "1173373896 1645872315"
+      "value": "1060318977 1371279338"
     },
     "WHITELIST_USERS": {
       "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
-      "value": "1173373896 1645872315"
+      "value": "1060318977 1371279338"
     },
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations.",
-      "value": "https://www.paypal.me/ZauteKm"
+      "value": "https://www.paypal.me/rickyzote"
     },
     "PORT": {
       "description": "Port to use for your webhooks",

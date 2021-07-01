@@ -9,7 +9,7 @@ import json
 from urllib.request import urlopen
 
 
-def covindia(bot: Bot, update: Update):
+def covind(bot: Bot, update: Update):
     message = update.effective_message
     state = ''
     confirmed = 0

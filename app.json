@@ -18,7 +18,7 @@
     },
     "TOKEN": {
       "description": "Your bot token, as a string.",
-      "value": ""
+      "value": "1748849417:AAEgXw1McZEcZndKyirEu_gk3QKWqj-gAsQ"
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
@@ -42,15 +42,15 @@
     },
     "SUDO_USERS": {
       "description": "A space separated list of user_ids which should be considered sudo users",
-      "value": "1060318977 1371279338"
+      "value": "1060318977"
     },
     "SUPPORT_USERS": {
       "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
-      "value": "1060318977 1371279338"
+      "value": "1060318977"
     },
     "WHITELIST_USERS": {
       "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
-      "value": "1060318977 1371279338"
+      "value": "1060318977"
     },
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations.",

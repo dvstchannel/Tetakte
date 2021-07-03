@@ -7,6 +7,7 @@ class Config(object):
     OWNER_USERNAME = "rsrmusic"
 
     # RECOMMENDED
+    SQLALCHEMY_DATABASE_URI = False  # needed for any database modules
     MESSAGE_DUMP = -1001465429519  # needed to make sure 'save from' messages persist
     LOAD = []
     NO_LOAD = ['translation', 'rss']

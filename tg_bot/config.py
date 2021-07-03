@@ -7,7 +7,7 @@ class Config(object):
     OWNER_USERNAME = "rsrmusic"
 
     # RECOMMENDED
-    SQLALCHEMY_DATABASE_URI = 'postgres://infotel:asd@167.99.33.127:5432/infodb'  # needed for any database modules
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:EmJhTmNo9j3Q3lVlVXAM@containers-us-west-10.railway.app:6625/railway'  # needed for any database modules
     MESSAGE_DUMP = -1001465429519  # needed to make sure 'save from' messages persist
     LOAD = []
     NO_LOAD = ['translation', 'rss']

@@ -18,18 +18,15 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hi...I'm here to help you manage your groups! Hit /help to find out more about how to use me to my full potential.
+Xin chào ... Tôi ở đây để giúp bạn quản lý nhóm của mình! Nhấn /trogiup để tìm hiểu thêm về cách sử dụng tôi với toàn bộ tiềm năng của tôi.
 
-Join my Group @rsrtginfo to get information on all the latest updates.
-
-Min hmandan tur hi English vek a hrilhfiah anih avang hian harsatna i neih theih avangin a chung a  𝗿𝘀𝗿𝘁𝗴𝗶𝗻𝗳𝗼  tih hi click la join rawh,harsatna te i thlen thei ang,chuan /help tih hi click la ka hnathawh theih te i chhiar thei ang.
-
+Tham gia nhóm của tôi @dongsinhvien để nhận thông tin về tất cả các bản cập nhật mới nhất.
 """
 
 
 HELP_STRINGS = """
 
-Hello! my name is *{}*.
+Xin chào! tên tôi là *{}*.
 
 *Main* available commands:
  - /start: Start the bot...
@@ -40,7 +37,7 @@ Hello! my name is *{}*.
    ◔ in a Group: will redirect you to pm, with all that chat's settings.
 
 {}
-All commands can be used with the following: / or !
+Tất cả các lệnh có thể được sử dụng như sau: / or !
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "If you have any bugs or questions on how to use me, have a look at @mizolibrary or @rsrtginfo.")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!

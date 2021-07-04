@@ -18,9 +18,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Xin chào ... Tôi ở đây để giúp bạn quản lý nhóm của mình! Nhấn /trogiup để tìm hiểu thêm về cách sử dụng tôi với toàn bộ tiềm năng của tôi.
-
-Tham gia nhóm của tôi @dongsinhvien để nhận thông tin về tất cả các bản cập nhật mới nhất.
+Hello <3 Nếu bạn là người mới thì vào những link sau để biết thêm về Tộc 🔞 nhé, có gần 20 nhóm và kênh siêu đông đúc luôn nè.
 """
 
 
@@ -31,18 +29,23 @@ Xin chào! tên tôi là *{}*.
 *Main* available commands:
  - /start: Start the bot...
  - /help: help....
- - /donate: To find out more about donating!
+ - /donate: Để tìm hiểu thêm về quyên góp!
  - /settings:
-   ◔ in PM: will send you your settings for all supported modules.
-   ◔ in a Group: will redirect you to pm, with all that chat's settings.
+   ◔ trong PM: sẽ gửi cho bạn cài đặt của bạn cho tất cả các mô-đun được hỗ trợ.
+   ◔ trong một Nhóm: sẽ chuyển hướng bạn đến pm, với tất cả các cài đặt của cuộc trò chuyện đó.
 
 {}
 Tất cả các lệnh có thể được sử dụng như sau: / or !
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "If you have any bugs or questions on how to use me, have a look at @mizolibrary or @rsrtginfo.")
+""".format(
+    dispatcher.bot.first_name,
+    "" if not ALLOW_EXCL else "\nSử dụng / hoặc !\n",
+)
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/rsrmusic) to get me to where I am now, and every donation helps \
-motivate him to make me even better; [PayPal](paypal.me/rickyzote)."""
+SAITAMA_IMG = "https://telegra.ph/file/2e9121dcb42e4460a0409.jpg"
+
+DONATE_STRING = """Heya, rất vui khi biết bạn muốn quyên góp!
+Nó đã mất rất nhiều công việc cho [người tạo ra](t.me/kuri69) để đưa tôi đến vị trí hiện tại và mọi khoản đóng góp đều giúp \
+động viên anh ấy để làm cho tôi tốt hơn nữa; [Ẩn Sát](t.me/cunongdan)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -130,11 +133,45 @@ def start(bot: Bot, update: Update, args: List[str]):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(bot.first_name)), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup( [[InlineKeyboardButton(text="➕ Add Me to Your Group ➕", url="t.me/{}?startgroup=true".format(bot.username))]]))
+            update.effective_message.reply_photo(
+                SAITAMA_IMG,
+                PM_START_TEXT.format(
+                    escape_markdown(bot.first_name)
+                ), 
+                parse_mode=ParseMode.MARKDOWN, 
+                disable_web_page_preview=True, 
+                reply_markup=InlineKeyboardMarkup( 
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="📚 Tổng hợp link nhóm",
+                                url=f"https://t.me/kenhsex",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="⛔ Luật nhóm, đọc để không bị ban",
+                                url=f"https://t.me/toc18/1",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="🔞 Cách unblock pornography iphone",
+                                url=f"https://ios.nangcuc.xyz",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="🇻🇳 Nhấn để cài Tiếng Việt",
+                                url=f"http://t.me/setlanguage/abcxyz",
+                            ),
+                        ],
+                    ]
+                )
+            )
                 
     else:
-        update.effective_message.reply_text("waked up😏😏😏")
+        update.effective_message.reply_text("😏😏😏")
 
 
 # for test purposes
@@ -226,7 +263,7 @@ def get_help(bot: Bot, update: Update):
 
         update.effective_message.reply_text("Contact me in PM to get the list of possible commands.",
                                             reply_markup=InlineKeyboardMarkup(
-                                                [[InlineKeyboardButton(text="Help",
+                                                [[InlineKeyboardButton(text="Trợ giúp",
                                                                        url="t.me/{}?start=help".format(
                                                                            bot.username))]]))
         return
@@ -400,7 +437,7 @@ def main():
     test_handler = CommandHandler("test", test)
     start_handler = CommandHandler("start", start, pass_args=True)
 
-    help_handler = CommandHandler("help", get_help)
+    help_handler = CommandHandler("trogiup", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
 
     settings_handler = CommandHandler("settings", get_settings)

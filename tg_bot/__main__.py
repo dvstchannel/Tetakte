@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hello <3 Nếu bạn là người mới thì vào những link sau để biết thêm về Tộc 🔞 nhé, có gần 20 nhóm và kênh siêu đông đúc luôn nè.
+**Hello ❤ Nếu bạn là người mới thì vào những link sau để biết thêm về Tộc 🔞 nhé, có gần 20 nhóm và kênh siêu đông đúc luôn nè.**
 """
 
 
@@ -41,7 +41,7 @@ Tất cả các lệnh có thể được sử dụng như sau: / or !
     "" if not ALLOW_EXCL else "\nSử dụng / hoặc !\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/2e9121dcb42e4460a0409.jpg"
+SAITAMA_IMG = "https://img.wattpad.com/cover/14881185-352-k444049.jpg"
 
 DONATE_STRING = """Heya, rất vui khi biết bạn muốn quyên góp!
 Nó đã mất rất nhiều công việc cho [người tạo ra](t.me/kuri69) để đưa tôi đến vị trí hiện tại và mọi khoản đóng góp đều giúp \
@@ -54,7 +54,6 @@ STATS = []
 USER_INFO = []
 DATA_IMPORT = []
 DATA_EXPORT = []
-
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 

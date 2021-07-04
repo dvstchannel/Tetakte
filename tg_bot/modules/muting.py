@@ -25,7 +25,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You'll need to either give me a username to mute, or reply to someone to be muted.")
+        message.reply_text("Bạn sẽ cần cung cấp cho tôi tên người dùng để tắt tiếng hoặc trả lời một người nào đó để tắt tiếng.")
         return ""
 
     if user_id == bot.id:
@@ -36,7 +36,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
     if member:
         if is_user_admin(chat, user_id, member=member):
-            message.reply_text("Afraid I can't stop an admin from talking!")
+            message.reply_text("Sợ rằng tôi không thể ngăn một quản trị viên nói chuyện!")
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
@@ -49,9 +49,9 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
                                               mention_html(member.user.id, member.user.first_name))
 
         else:
-            message.reply_text("This user is already muted!")
+            message.reply_text("Người dùng này đã bị tắt tiếng!")
     else:
-        message.reply_text("This user isn't in the chat!")
+        message.reply_text("Người dùng này không có trong cuộc trò chuyện!")
 
     return ""
 
@@ -172,23 +172,23 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
             LOGGER.warning(update)
             LOGGER.exception("ERROR muting user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("Well damn, I can't mute that user.")
+            message.reply_text("Chết tiệt, tôi không thể tắt tiếng người dùng đó.")
 
     return ""
 
 
 __help__ = """
 *Admin only:*
- - /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
- - /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- - /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
+ - /khoamom <userhandle>: người dùng im lặng. Cũng có thể được sử dụng như một câu trả lời, tắt tiếng người dùng đã trả lời.
+ - /tamkhoamom <userhandle> x(m/h/d): tắt tiếng người dùng trong x thời gian. (thông qua tay cầm, hoặc trả lời). m = phút, h = giờ, d = ngày.
+ - /tatkhoamom <userhandle>: bật tiếng người dùng. Cũng có thể được sử dụng như một câu trả lời, tắt tiếng người dùng đã trả lời.
 """
 
-__mod_name__ = "Mute"
+__mod_name__ = "Khóa mõm"
 
-MUTE_HANDLER = CommandHandler("mute", mute, pass_args=True, filters=Filters.group)
-UNMUTE_HANDLER = CommandHandler("unmute", unmute, pass_args=True, filters=Filters.group)
-TEMPMUTE_HANDLER = CommandHandler(["tmute", "tempmute"], temp_mute, pass_args=True, filters=Filters.group)
+MUTE_HANDLER = CommandHandler("khoamom", mute, pass_args=True, filters=Filters.group)
+UNMUTE_HANDLER = CommandHandler("tatkhoamom", unmute, pass_args=True, filters=Filters.group)
+TEMPMUTE_HANDLER = CommandHandler(["tamkhoamom", "tmute"], temp_mute, pass_args=True, filters=Filters.group)
 
 dispatcher.add_handler(MUTE_HANDLER)
 dispatcher.add_handler(UNMUTE_HANDLER)

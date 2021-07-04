@@ -38,25 +38,25 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         if excp.message in GKICK_ERRORS:
             pass
         else:
-            message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
+            message.reply_text("Người dùng không thể bị kick trên toàn cầu vì: {}".format(excp.message))
             return
     except TelegramError:
             pass
 
     if not user_id:
-        message.reply_text("You do not seems to be referring to a user")
+        message.reply_text("Bạn dường như không đề cập đến một người dùng")
         return
     if int(user_id) in SUDO_USERS or int(user_id) in SUPPORT_USERS:
-        message.reply_text("OHHH! Someone's trying to gkick a sudo/support user! *Grabs popcorn*")
+        message.reply_text("OHHH! Ai đó đang cố gắng thu hút người dùng sudo / hỗ trợ! *Lấy bỏng ngô*")
         return
     if int(user_id) == OWNER_ID:
-        message.reply_text("Wow! Someone's so noob that he want to gkick my owner! *Grabs Potato Chips*")
+        message.reply_text("Chà! Một người nào đó thật là noob đến nỗi anh ta muốn gạ gẫm chủ sở hữu của tôi! *Lấy Khoai tây chiên*")
         return
     if int(user_id) == bot.id:
         message.reply_text("OHH... Let me kick myself.. No way... ")
         return
     chats = get_all_chats()
-    message.reply_text("Globally kicking user @{}".format(user_chat.username))
+    message.reply_text("Đang kick @{} khỏi toàn bộ nhóm".format(user_chat.username))
     for chat in chats:
         try:
              bot.unban_chat_member(chat.chat_id, user_id)  # Unban_member = kick (and not ban)
@@ -64,7 +64,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
             if excp.message in GKICK_ERRORS:
                 pass
             else:
-                message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
+                message.reply_text("gười dùng không thể bị kick trên toàn cầu vì: {}".format(excp.message))
                 return
         except TelegramError:
             pass

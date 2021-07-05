@@ -65,7 +65,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if user_id == bot.id:
-        message.reply_text("-_- So funny, lets vban myself why don't I? Nice try.")
+        message.reply_text("-_- Thật buồn cười, tôi tô màu rồi nên không bay màu được? Rất vui..")
         return
 
     try:
@@ -94,7 +94,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
         return
 
-    message.reply_text("⚡️ *ĂN GẬY NHA CON* ⚡️")
+    message.reply_text("⚡️ **ĂN GẬY NHA CON** ⚡️")
 
     banner = update.effective_user  # type: Optional[User]
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
@@ -133,7 +133,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
             pass
 
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS, 
-                  "{} đã được vbanned thành công!".format(mention_html(user_chat.id, user_chat.first_name)),
+                  "{} đã bị bay màu!".format(mention_html(user_chat.id, user_chat.first_name)),
                 html=True)
     message.reply_text("Person has been vbanned.")
 
@@ -158,7 +158,7 @@ def ungban(bot: Bot, update: Update, args: List[str]):
 
     banner = update.effective_user  # type: Optional[User]
 
-    message.reply_text("Tôi xin lỗi {}, vô lai nhóm với cơ hội thứ hai".format(user_chat.first_name))
+    message.reply_text("Tôi xin lỗi {}, vô lạii nhóm với cơ hội thứ hai".format(user_chat.first_name))
 
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
                  "<b>Regression of VBan</b>" \
@@ -209,7 +209,7 @@ def gbanlist(bot: Bot, update: Update):
     banned_users = sql.get_gban_list()
 
     if not banned_users:
-        update.effective_message.reply_text("There aren't any gbanned users! You're kinder than I expected...")
+        update.effective_message.reply_text("Không có bất kỳ người dùng nào bị cấm! Bạn tốt hơn tôi mong đợi...")
         return
 
     banfile = 'Vặn những kẻ này.\n'
@@ -302,23 +302,27 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
 *Admin only:*
- - /vbanstat <on/off/yes/no>: Sẽ vô hiệu hóa ảnh hưởng của lệnh cấm toàn cầu đối với nhóm của bạn hoặc trả lại cài đặt hiện tại của bạn.
+ - /setbaymau <on/off/yes/no>: Sẽ vô hiệu hóa ảnh hưởng của lệnh cấm toàn cầu đối với nhóm của bạn hoặc trả lại cài đặt hiện tại của bạn.
 
 Gbans, còn được gọi là lệnh cấm toàn cầu, được chủ sở hữu bot sử dụng để cấm những người gửi thư rác trên tất cả các nhóm. Điều này giúp bảo vệ \
 bạn và các nhóm của bạn bằng cách loại bỏ lũ spam càng nhanh càng tốt. Họ có thể bị tắt cho nhóm của bạn bằng cách gọi \
-/vbanstat
+/setbaymau
+
+- /tomau - Gỡ ban
+- /baymau - Ban
+- /listbaymau - Danh sách bay màu
 """
 
-__mod_name__ = "VBans"
+__mod_name__ = "Bay màu"
 
-GBAN_HANDLER = CommandHandler("vban", gban, pass_args=True,
+GBAN_HANDLER = CommandHandler("baymau", gban, pass_args=True,
                               filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
-UNGBAN_HANDLER = CommandHandler("unvban", ungban, pass_args=True,
+UNGBAN_HANDLER = CommandHandler("tomau", ungban, pass_args=True,
                                 filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
-GBAN_LIST = CommandHandler("vbanlist", gbanlist,
+GBAN_LIST = CommandHandler("listbaymau", gbanlist,
                            filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
 
-GBAN_STATUS = CommandHandler("vbanstat", gbanstat, pass_args=True, filters=Filters.group)
+GBAN_STATUS = CommandHandler("setbaymau", gbanstat, pass_args=True, filters=Filters.group)
 
 GBAN_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_gban)
 

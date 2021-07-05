@@ -13,19 +13,19 @@ from tg_bot.modules.helper_funcs.misc import send_to_list
 from tg_bot.modules.sql.users_sql import get_all_chats
 
 GKICK_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Người dùng là quản trị viên của cuộc trò chuyện",
+    "Không tìm thấy trò chuyện",
+    "Không đủ quyền hạn chế / không hạn chế thành viên trò chuyện",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Trò chuyện nhóm đã bị vô hiệu hóa",
+    "Cần phải là người mời người dùng để loại bỏ nó khỏi một nhóm cơ bản",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Chỉ người tạo ra một nhóm cơ bản mới có thể yêu cầu quản trị viên nhóm",
     "Channel_private",
-    "Not in the chat",
-    "Method is available for supergroup and channel chats only",
-    "Reply message not found"
+    "Không có trong cuộc trò chuyện",
+    "Phương pháp chỉ khả dụng cho các cuộc trò chuyện nhóm và kênh siêu nhỏ",
+    "Không tìm thấy tin nhắn trả lời"
 }
 
 @run_async
@@ -47,13 +47,13 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         message.reply_text("Bạn dường như không đề cập đến một người dùng")
         return
     if int(user_id) in SUDO_USERS or int(user_id) in SUPPORT_USERS:
-        message.reply_text("OHHH! Ai đó đang cố gắng thu hút người dùng sudo / hỗ trợ! *Lấy bỏng ngô*")
+        message.reply_text("OHHH! Ai đó đang cố gắng thu hút người dùng sudo/hỗ trợ! *Lấy bỏng ngô*")
         return
     if int(user_id) == OWNER_ID:
         message.reply_text("Chà! Một người nào đó thật là noob đến nỗi anh ta muốn gạ gẫm chủ sở hữu của tôi! *Lấy Khoai tây chiên*")
         return
     if int(user_id) == bot.id:
-        message.reply_text("OHH... Let me kick myself.. No way... ")
+        message.reply_text("OHH... Hãy để tôi đá chính mình.. Không đời nào... ")
         return
     chats = get_all_chats()
     message.reply_text("Đang kick @{} khỏi toàn bộ nhóm".format(user_chat.username))
@@ -64,11 +64,11 @@ def gkick(bot: Bot, update: Update, args: List[str]):
             if excp.message in GKICK_ERRORS:
                 pass
             else:
-                message.reply_text("gười dùng không thể bị kick trên toàn cầu vì: {}".format(excp.message))
+                message.reply_text("Người dùng không thể bị kick trên toàn cầu vì: {}".format(excp.message))
                 return
         except TelegramError:
             pass
 
-GKICK_HANDLER = CommandHandler("gkick", gkick, pass_args=True,
+GKICK_HANDLER = CommandHandler("duoicho", gkick, pass_args=True,
                               filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
 dispatcher.add_handler(GKICK_HANDLER)                              

@@ -135,7 +135,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS, 
                   "{} đã bị bay màu!".format(mention_html(user_chat.id, user_chat.first_name)),
                 html=True)
-    message.reply_text("Person has been vbanned.")
+    message.reply_text("Đã bay màu.")
 
 
 @run_async
@@ -275,13 +275,18 @@ def gbanstat(bot: Bot, update: Update, args: List[str]):
 
 
 def __stats__():
-    return "{} gbanned users.".format(sql.num_gbanned_users())
+    return "{} đã bay màu.".format(sql.num_gbanned_users())
 
 
 def __user_info__(user_id):
     is_gbanned = sql.is_user_gbanned(user_id)
-
-    text = "Bị cấm trên toàn cầu: <b>{}</b>"
+    text = "Cặn bã: <b>{}</b>"
+    if user_id in [777000, 1087968824]:
+        return ""
+    if user_id == dispatcher.bot.id:
+        return ""
+    if int(user_id) in DRAGONS + TIGERS + WOLVES:
+        return ""
     if is_gbanned:
         text = text.format("Yes")
         user = sql.get_gbanned_user(user_id)
@@ -297,7 +302,7 @@ def __migrate__(old_chat_id, new_chat_id):
 
 
 def __chat_settings__(chat_id, user_id):
-    return "Trò chuyện này đang thực thi *vbans*: `{}`.".format(sql.does_chat_gban(chat_id))
+    return "Trò chuyện này đang thực thi *chế độ bay màu*: `{}`.".format(sql.does_chat_gban(chat_id))
 
 
 __help__ = """

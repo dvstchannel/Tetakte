@@ -5,8 +5,8 @@ from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, BigInteger
 from tg_bot.modules.helper_funcs.msg_types import Types
 from tg_bot.modules.sql import SESSION, BASE
 
-DEFAULT_WELCOME = "Hey {first}, how are you?"
-DEFAULT_GOODBYE = "Nice knowing ya!"
+DEFAULT_WELCOME = "Ẩn sát đang phát hiện thích khách, thần sẽ ầm thầm theo dõi tên gian tế {first} này?"
+DEFAULT_GOODBYE = "Địch đã rút lui!"
 
 
 class Welcome(BASE):
@@ -31,7 +31,7 @@ class Welcome(BASE):
         self.should_goodbye = should_goodbye
 
     def __repr__(self):
-        return "<Chat {} should Welcome new users: {}>".format(self.chat_id, self.should_welcome)
+        return "<Trò chuyện {} nên Chào mừng người dùng mới: {}>".format(self.chat_id, self.should_welcome)
 
 
 class WelcomeButtons(BASE):

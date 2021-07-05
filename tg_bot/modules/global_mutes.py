@@ -64,13 +64,13 @@ def gmute(bot: Bot, update: Update, args: List[str]):
 
         return
 
-    message.reply_text("*đang lấy cuộn băng keo* 😉")
+    message.reply_text("**tiểu nhị lấy cho cuộn băng keo** 😉")
 
     muter = update.effective_user  # type: Optional[User]
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
                  "{} đã bị khóa mõm {} "
-                 "because:\n{}".format(mention_html(muter.id, muter.first_name),
-                                       mention_html(user_chat.id, user_chat.first_name), reason or "No reason given"),
+                 "Bởi vì:\n{}".format(mention_html(muter.id, muter.first_name),
+                                       mention_html(user_chat.id, user_chat.first_name), reason or "Nghịch ngu"),
                  html=True)
 
     sql.gmute_user(user_id, user_chat.username or user_chat.first_name, reason)
@@ -86,27 +86,27 @@ def gmute(bot: Bot, update: Update, args: List[str]):
         try:
             bot.restrict_chat_member(chat_id, user_id, can_send_messages=False)
         except BadRequest as excp:
-            if excp.message == "User is an administrator of the chat":
+            if excp.message == "Người dùng là quản trị viên của cuộc trò chuyện":
                 pass
-            elif excp.message == "Chat not found":
+            elif excp.message == "Trò chuyện không tìm thấy":
                 pass
-            elif excp.message == "Not enough rights to restrict/unrestrict chat member":
+            elif excp.message == "Không đủ quyền hạn chế / không hạn chế thành viên trò chuyện":
                 pass
             elif excp.message == "User_not_participant":
                 pass
             elif excp.message == "Peer_id_invalid":  # Suspect this happens when a group is suspended by telegram.
                 pass
-            elif excp.message == "Group chat was deactivated":
+            elif excp.message == "Trò chuyện nhóm đã bị vô hiệu hóa":
                 pass
-            elif excp.message == "Need to be inviter of a user to kick it from a basic group":
+            elif excp.message == "Cần phải là người mời người dùng để loại bỏ nó khỏi một nhóm cơ bản":
                 pass
             elif excp.message == "Chat_admin_required":
                 pass
-            elif excp.message == "Only the creator of a basic group can kick group administrators":
+            elif excp.message == "Chỉ người tạo một nhóm cơ bản mới có thể yêu cầu quản trị viên nhóm":
                 pass
-            elif excp.message == "Method is available only for supergroups":
+            elif excp.message == "Phương pháp chỉ có sẵn cho siêu nhóm":
                 pass
-            elif excp.message == "Can't demote chat creator":
+            elif excp.message == "Không thể hạ cấp người tạo trò chuyện":
                 pass
             else:
                 message.reply_text("Không thể tắt tiếng do:: {}".format(excp.message))
@@ -165,17 +165,17 @@ def ungmute(bot: Bot, update: Update, args: List[str]):
                                      can_add_web_page_previews=True)
 
         except BadRequest as excp:
-            if excp.message == "User is an administrator of the chat":
+            if excp.message == "Người dùng là quản trị viên của cuộc trò chuyện":
                 pass
-            elif excp.message == "Chat not found":
+            elif excp.message == "Trò chuyện không tìm thấy":
                 pass
-            elif excp.message == "Not enough rights to restrict/unrestrict chat member":
+            elif excp.message == "Không đủ quyền hạn chế / không hạn chế thành viên trò chuyện":
                 pass
             elif excp.message == "User_not_participant":
                 pass
-            elif excp.message == "Method is available for supergroup and channel chats only":
+            elif excp.message == "Phương pháp chỉ khả dụng cho các cuộc trò chuyện nhóm và kênh":
                 pass
-            elif excp.message == "Not in the chat":
+            elif excp.message == "Không có trong cuộc trò chuyện":
                 pass
             elif excp.message == "Channel_private":
                 pass
@@ -293,13 +293,17 @@ __help__ = """
 Gmutes, còn được gọi là tắt tiếng toàn cầu, được chủ sở hữu bot sử dụng để tắt tiếng những người gửi spam trên tất cả các nhóm. Điều này giúp bảo vệ \
 bạn và các nhóm của bạn bằng cách loại bỏ lũ spam càng nhanh càng tốt. Họ có thể bị tắt cho nhóm của bạn bằng cách gọi \
 /gmutestat
+
+- /gayho - Để chặn chat all group
+- /gaydi - Để mở chat all group
+- /gmutelist - Xem danh sách
 """
 
 __mod_name__ = "GMute"
 
-GMUTE_HANDLER = CommandHandler("gmute", gmute, pass_args=True,
+GMUTE_HANDLER = CommandHandler("gayho", gmute, pass_args=True,
                               filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
-UNGMUTE_HANDLER = CommandHandler("ungmute", ungmute, pass_args=True,
+UNGMUTE_HANDLER = CommandHandler("gaydi", ungmute, pass_args=True,
                                 filters=CustomFilters.sudo_filter | CustomFilters.support_filter)
 GMUTE_LIST = CommandHandler("gmutelist", gmutelist,
                            filters=CustomFilters.sudo_filter | CustomFilters.support_filter)

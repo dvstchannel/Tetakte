@@ -38,7 +38,7 @@ def keyboard(bot, update):
         if chat_name1:
             btn1 = "/connect {} - {}".format(history.chat_id1, chat_name1)
         else:
-            btn1 = "/connect - Connect to the chat"
+            btn1 = "/connect - Ngắt kết nối khỏi trò chuyện"
         if chat_name2:
             btn2 = "/connect {} - {}".format(history.chat_id2, chat_name2)
         else:
@@ -52,9 +52,9 @@ def keyboard(bot, update):
 
     update.effective_message.reply_text("keyboard updated",
                                             reply_markup=ReplyKeyboardMarkup([[
-                                                KeyboardButton("/help - Bot Help"), 
-                                                KeyboardButton("/donate - Donate"),
-                                                KeyboardButton("/notes - Notes")],
+                                                KeyboardButton("/help - Trợ giúp Bot"), 
+                                                KeyboardButton("/donate - Ủng hộ"),
+                                                KeyboardButton("/notes - Ghi chú")],
                                              [KeyboardButton(btn1)], 
                                              [KeyboardButton(btn2)],
                                              [KeyboardButton(btn3)]]))

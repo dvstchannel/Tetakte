@@ -29,7 +29,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not muting myself!")
+        message.reply_text("Tôi không tự tắt tiếng!")
         return ""
 
     member = chat.get_member(int(user_id))
@@ -40,7 +40,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
-            message.reply_text("👍🏻 muted! 🤐")
+            message.reply_text("👍🏻 Khóa mõm chi thuật 🤐")
             return "<b>{}:</b>" \
                    "\n#MUTE" \
                    "\n<b>Admin:</b> {}" \
@@ -67,7 +67,7 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You'll need to either give me a username to unmute, or reply to someone to be unmuted.")
+        message.reply_text("Bạn sẽ cần cung cấp cho tôi tên người dùng để hiển thị hoặc trả lời một người nào đó để được hiển thị.")
         return ""
 
     member = chat.get_member(int(user_id))
@@ -90,8 +90,8 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
                                               mention_html(user.id, user.first_name),
                                               mention_html(member.user.id, member.user.first_name))
     else:
-        message.reply_text("This user isn't even in the chat, unmuting them won't make them talk more than they "
-                           "already do!")
+        message.reply_text("Người dùng này thậm chí không tham gia cuộc trò chuyện, việc bật tiếng họ sẽ không khiến họ nói nhiều hơn họ "
+                           "đã làm!")
 
     return ""
 
@@ -109,14 +109,14 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("Bạn dường như không đề cập đến một người dùng.")
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("Tôi dường như không thể tìm thấy người dùng này")
             return ""
         else:
             raise
@@ -126,11 +126,11 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna MUTE myself, are you crazy?")
+        message.reply_text("Tôi sẽ không tự MUTE, bạn có điên không?")
         return ""
 
     if not reason:
-        message.reply_text("You haven't specified a time to mute this user for!")
+        message.reply_text("Bạn chưa chỉ định thời gian để tắt tiếng người dùng này!")
         return ""
 
     split_reason = reason.split(None, 1)
@@ -158,15 +158,15 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         if member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, until_date=mutetime, can_send_messages=False)
-            message.reply_text("shut up! 😠 Muted for {}!".format(time_val))
+            message.reply_text("Câm miệng! 😠 Khóa mõm trong {}!".format(time_val))
             return log
         else:
-            message.reply_text("This user is already muted.")
+            message.reply_text("Người dùng này đã bị tắt tiếng.")
 
     except BadRequest as excp:
-        if excp.message == "Reply message not found":
+        if excp.message == "Trả lời tin nhắn không tìm thấy":
             # Do not reply
-            message.reply_text("shut up! 😠 Muted for {}!".format(time_val), quote=False)
+            message.reply_text("Câm miệng! 😠 Khóa mõm trong {}!".format(time_val), quote=False)
             return log
         else:
             LOGGER.warning(update)
@@ -179,16 +179,16 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
 
 __help__ = """
 *Admin only:*
- - /khoamom <userhandle>: người dùng im lặng. Cũng có thể được sử dụng như một câu trả lời, tắt tiếng người dùng đã trả lời.
- - /tamkhoamom <userhandle> x(m/h/d): tắt tiếng người dùng trong x thời gian. (thông qua tay cầm, hoặc trả lời). m = phút, h = giờ, d = ngày.
- - /tatkhoamom <userhandle>: bật tiếng người dùng. Cũng có thể được sử dụng như một câu trả lời, tắt tiếng người dùng đã trả lời.
+ - /diemhuyet <userhandle>: người dùng im lặng. Cũng có thể được sử dụng như một câu trả lời, tắt tiếng người dùng đã trả lời.
+ - /tamdiemhuyet <userhandle> x(m/h/d): tắt tiếng người dùng trong x thời gian. (thông qua tay cầm, hoặc trả lời). m = phút, h = giờ, d = ngày.
+ - /giaihuyet <userhandle>: bật tiếng người dùng. Cũng có thể được sử dụng như một câu trả lời, tắt tiếng người dùng đã trả lời.
 """
 
-__mod_name__ = "Khóa mõm"
+__mod_name__ = "Điểm huyệt"
 
-MUTE_HANDLER = CommandHandler("khoamom", mute, pass_args=True, filters=Filters.group)
-UNMUTE_HANDLER = CommandHandler("tatkhoamom", unmute, pass_args=True, filters=Filters.group)
-TEMPMUTE_HANDLER = CommandHandler(["tamkhoamom", "tmute"], temp_mute, pass_args=True, filters=Filters.group)
+MUTE_HANDLER = CommandHandler("diemhuyet", mute, pass_args=True, filters=Filters.group)
+UNMUTE_HANDLER = CommandHandler("giaihuyet", unmute, pass_args=True, filters=Filters.group)
+TEMPMUTE_HANDLER = CommandHandler(["tamdiemhuyet", "tmute"], temp_mute, pass_args=True, filters=Filters.group)
 
 dispatcher.add_handler(MUTE_HANDLER)
 dispatcher.add_handler(UNMUTE_HANDLER)
